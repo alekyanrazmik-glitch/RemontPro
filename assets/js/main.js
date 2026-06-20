@@ -319,7 +319,7 @@
   }
 
   /* ---------- Телефон / WhatsApp ---------- */
-  var PHONE = "PHONE_PLACEHOLDER";
+  var PHONE = "79002721001";
   function waLink(text) {
     return "https://wa.me/" + PHONE + (text ? "?text=" + encodeURIComponent(text) : "");
   }
