@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 
-Sitemap: SITE_URL_PLACEHOLDER/sitemap.xml
+Sitemap: https://alekyanrazmik-glitch.github.io/RemontPro/sitemap.xml

@@ -319,7 +319,7 @@
   }
 
   /* ---------- Телефон / WhatsApp ---------- */
-  var PHONE = "PHONE_PLACEHOLDER";
+  var PHONE = "79002721001";
   function waLink(text) {
     return "https://wa.me/" + PHONE + (text ? "?text=" + encodeURIComponent(text) : "");
   }
@@ -383,8 +383,41 @@
       });
     });
 
-    // год в футере
+    // год в футере (старый .js-year и новый #year)
     var y = document.querySelector(".js-year");
     if (y) y.textContent = new Date().getFullYear();
+    var y2 = document.getElementById("year");
+    if (y2) y2.textContent = new Date().getFullYear();
+
+    // мобильное меню новой главной (.menu-button / .nav)
+    var menuBtn = document.querySelector(".menu-button");
+    var newNav = document.querySelector(".nav");
+    if (menuBtn && newNav) {
+      menuBtn.addEventListener("click", function () {
+        var open = newNav.classList.toggle("is-open");
+        menuBtn.classList.toggle("is-open", open);
+        menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+      newNav.querySelectorAll("a").forEach(function (l) {
+        l.addEventListener("click", function () { newNav.classList.remove("is-open"); menuBtn.classList.remove("is-open"); });
+      });
+    }
+
+    // форма заявки новой главной → отправка в WhatsApp
+    var leadForm = document.getElementById("leadForm");
+    if (leadForm) {
+      leadForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        var name = (leadForm.querySelector('[name="name"]') || {}).value || "";
+        var phone = (leadForm.querySelector('[name="phone"]') || {}).value || "";
+        var msg = (leadForm.querySelector('[name="message"]') || {}).value || "";
+        if (name.trim().length < 2) { alert("Укажите имя."); return; }
+        if (phone.replace(/\D/g, "").length < 10) { alert("Укажите корректный телефон."); return; }
+        var text = "Здравствуйте! Меня зовут " + name + ", телефон " + phone +
+          (msg ? ". Задача: " + msg : ".");
+        window.open(waLink(text), "_blank", "noopener");
+        leadForm.reset();
+      });
+    }
   });
 })();

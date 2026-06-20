@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>SITE_URL_PLACEHOLDER/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>SITE_URL_PLACEHOLDER/uslugi/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>SITE_URL_PLACEHOLDER/portfolio/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>SITE_URL_PLACEHOLDER/videos/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>SITE_URL_PLACEHOLDER/prices/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>SITE_URL_PLACEHOLDER/goroda/gelendzhik/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>SITE_URL_PLACEHOLDER/goroda/novorossiysk/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>SITE_URL_PLACEHOLDER/blog/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>SITE_URL_PLACEHOLDER/faq/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>SITE_URL_PLACEHOLDER/contacts/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://alekyanrazmik-glitch.github.io/RemontPro/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://alekyanrazmik-glitch.github.io/RemontPro/uslugi/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://alekyanrazmik-glitch.github.io/RemontPro/portfolio/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://alekyanrazmik-glitch.github.io/RemontPro/videos/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://alekyanrazmik-glitch.github.io/RemontPro/prices/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://alekyanrazmik-glitch.github.io/RemontPro/goroda/gelendzhik/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://alekyanrazmik-glitch.github.io/RemontPro/goroda/novorossiysk/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://alekyanrazmik-glitch.github.io/RemontPro/blog/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://alekyanrazmik-glitch.github.io/RemontPro/faq/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://alekyanrazmik-glitch.github.io/RemontPro/contacts/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>
