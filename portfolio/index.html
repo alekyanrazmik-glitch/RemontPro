@@ -3,91 +3,89 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Портфолио ремонтов в Геленджике и Новороссийске — RemontPro</title>
-  <meta name="description" content="Портфолио выполненных ремонтов RemontPro: квартиры под ключ, капитальный и косметический ремонт, ванные и коммерческие помещения в Геленджике и Новороссийске." />
-  <link rel="canonical" href="https://remontpro.example/portfolio/" />
+  <title>Портфолио ремонтов — RemontPro, Геленджик и Новороссийск</title>
+  <meta name="description" content="Живое портфолио ремонтной студии RemontPro: квартиры под ключ, капитальный и косметический ремонт, ванные и коммерческие помещения в Геленджике и Новороссийске. Площадь, сроки, бюджет, фото и видео." />
+  <link rel="canonical" href="SITE_URL_PLACEHOLDER/portfolio/" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Портфолио ремонтов — RemontPro" />
-  <meta property="og:description" content="Примеры выполненных проектов по ремонту квартир и помещений." />
-  <meta property="og:url" content="https://remontpro.example/portfolio/" />
-  <meta property="og:image" content="https://remontpro.example/assets/images/og-cover.jpg" />
+  <meta property="og:description" content="Реальные проекты ремонта с фото, видео и параметрами объектов." />
+  <meta property="og:url" content="SITE_URL_PLACEHOLDER/portfolio/" />
+  <meta property="og:image" content="SITE_URL_PLACEHOLDER/assets/images/og-cover.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../assets/css/style.css" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231b2230'/><text x='50' y='68' font-size='56' text-anchor='middle' fill='%23ff7a18' font-family='Arial' font-weight='bold'>R</text></svg>" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%2315171c'/><rect x='18' y='70' width='64' height='8' fill='%23ff5a1f'/><text x='50' y='60' font-size='52' text-anchor='middle' fill='%23ff5a1f' font-family='Arial' font-weight='bold'>R</text></svg>" />
 </head>
 <body>
-  <header class="header">
-    <div class="container header__inner">
-      <a href="../index.html" class="logo"><span class="logo__mark">R<span>•</span></span>RemontPro</a>
-      <nav class="nav" aria-label="Главное меню">
-        <ul class="nav__list">
+  <header class="site-header">
+    <div class="wrap site-header__row">
+      <a href="../index.html" class="brand"><span class="brand__mark">R</span><span>RemontPro<small>ремонтная студия</small></span></a>
+      <nav class="main-nav" aria-label="Главное меню">
+        <ul class="main-nav__list">
           <li><a href="../uslugi/">Услуги</a></li>
-          <li><a href="../prices/">Цены</a></li>
           <li><a href="../portfolio/">Портфолио</a></li>
+          <li><a href="../videos/">Видео</a></li>
+          <li><a href="../prices/">Цены</a></li>
           <li><a href="../goroda/gelendzhik/">Геленджик</a></li>
           <li><a href="../goroda/novorossiysk/">Новороссийск</a></li>
           <li><a href="../blog/">Блог</a></li>
-          <li><a href="../faq/">FAQ</a></li>
           <li><a href="../contacts/">Контакты</a></li>
         </ul>
-        <a href="https://wa.me/PLACEHOLDER_PHONE" class="btn btn--whatsapp" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="../contacts/" class="btn btn--orange">Обсудить ремонт</a>
       </nav>
-      <div class="header__actions">
-        <a href="tel:PLACEHOLDER_PHONE" class="header__phone">+7 (XXX) XXX-XX-XX</a>
-        <button class="nav-toggle" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span><span></span></button>
+      <div class="header-cta">
+        <a href="tel:PHONE_PLACEHOLDER" class="header-phone">+7 (XXX) XXX-XX-XX</a>
+        <button class="burger" aria-label="Меню" aria-expanded="false"><span></span><span></span><span></span></button>
       </div>
     </div>
   </header>
 
   <main>
-    <section class="page-hero">
-      <div class="container">
-        <nav class="breadcrumbs"><a href="../index.html">Главная</a><span>/</span>Портфолио</nav>
-        <h1>Портфолио наших работ</h1>
-        <p>Реальные объекты, сданные в Геленджике и Новороссийске. Квартиры, дома, ванные и коммерческие помещения.</p>
+    <section class="page-head">
+      <div class="wrap">
+        <nav class="crumbs"><a href="../index.html">Главная</a><span>/</span>Портфолио</nav>
+        <h1>Живое портфолио</h1>
+        <p>Реальные объекты студии в Геленджике и Новороссийске. Карточки формируются автоматически из базы проектов — с площадью, сроком, бюджетом и статусом.</p>
       </div>
     </section>
 
     <section class="section">
-      <div class="container">
-        <div class="grid grid--3">
-          <article class="card portfolio-card"><div class="portfolio-card__media"><span class="portfolio-card__tag">Под ключ</span>2-комн. квартира, 64 м²</div><div class="portfolio-card__body"><h2 style="font-size:1.08rem;">Квартира в ЖК «Морской», Геленджик</h2><div class="portfolio-card__meta"><span>64 м²</span><span>75 дней</span><span>Минимализм</span></div></div></article>
-          <article class="card portfolio-card"><div class="portfolio-card__media"><span class="portfolio-card__tag">Капитальный</span>3-комн. квартира, 82 м²</div><div class="portfolio-card__body"><h2 style="font-size:1.08rem;">Квартира в центре, Новороссийск</h2><div class="portfolio-card__meta"><span>82 м²</span><span>95 дней</span><span>Современный</span></div></div></article>
-          <article class="card portfolio-card"><div class="portfolio-card__media"><span class="portfolio-card__tag">Ванная</span>Санузел, 6 м²</div><div class="portfolio-card__body"><h2 style="font-size:1.08rem;">Ванная под ключ, Геленджик</h2><div class="portfolio-card__meta"><span>6 м²</span><span>21 день</span><span>Крупный формат</span></div></div></article>
-          <article class="card portfolio-card"><div class="portfolio-card__media"><span class="portfolio-card__tag">Косметический</span>Студия, 38 м²</div><div class="portfolio-card__body"><h2 style="font-size:1.08rem;">Студия у моря, Новороссийск</h2><div class="portfolio-card__meta"><span>38 м²</span><span>30 дней</span><span>Светлый интерьер</span></div></div></article>
-          <article class="card portfolio-card"><div class="portfolio-card__media"><span class="portfolio-card__tag">Коммерция</span>Офис, 120 м²</div><div class="portfolio-card__body"><h2 style="font-size:1.08rem;">Офисное помещение, Новороссийск</h2><div class="portfolio-card__meta"><span>120 м²</span><span>60 дней</span><span>Open space</span></div></div></article>
-          <article class="card portfolio-card"><div class="portfolio-card__media"><span class="portfolio-card__tag">Дизайнерский</span>Дом, 150 м²</div><div class="portfolio-card__body"><h2 style="font-size:1.08rem;">Частный дом, Геленджик</h2><div class="portfolio-card__meta"><span>150 м²</span><span>140 дней</span><span>Авторский проект</span></div></div></article>
-          <article class="card portfolio-card"><div class="portfolio-card__media"><span class="portfolio-card__tag">Под ключ</span>1-комн. квартира, 42 м²</div><div class="portfolio-card__body"><h2 style="font-size:1.08rem;">Квартира в новостройке, Геленджик</h2><div class="portfolio-card__meta"><span>42 м²</span><span>55 дней</span><span>Скандинавский стиль</span></div></div></article>
-          <article class="card portfolio-card"><div class="portfolio-card__media"><span class="portfolio-card__tag">Капитальный</span>Кухня-гостиная, 28 м²</div><div class="portfolio-card__body"><h2 style="font-size:1.08rem;">Объединение кухни, Новороссийск</h2><div class="portfolio-card__meta"><span>28 м²</span><span>40 дней</span><span>Лофт</span></div></div></article>
-          <article class="card portfolio-card"><div class="portfolio-card__media"><span class="portfolio-card__tag">Коммерция</span>Кафе, 90 м²</div><div class="portfolio-card__body"><h2 style="font-size:1.08rem;">Кафе на набережной, Геленджик</h2><div class="portfolio-card__meta"><span>90 м²</span><span>70 дней</span><span>Под ключ</span></div></div></article>
-        </div>
+      <div class="wrap">
+        <div class="cases" data-render="cases"></div>
+      </div>
+    </section>
 
-        <div class="cta-banner" style="margin-top: 44px;">
+    <section class="section section--flush" style="padding-bottom:clamp(64px,9vw,130px)">
+      <div class="wrap">
+        <div class="cta-bar">
           <h2>Хотите такой же результат?</h2>
           <p>Расскажите о вашем объекте — подготовим смету и реализуем проект под ключ.</p>
-          <div class="cta-banner__actions">
-            <a href="../contacts/" class="btn btn--primary">Обсудить проект</a>
-            <a href="https://wa.me/PLACEHOLDER_PHONE" class="btn btn--whatsapp" target="_blank" rel="noopener">Написать в WhatsApp</a>
+          <div class="cta-bar__actions">
+            <a href="../contacts/" class="btn btn--light btn--lg">Обсудить проект</a>
+            <a data-wa="Здравствуйте! Смотрел портфолио, хочу обсудить ремонт." class="btn btn--dark btn--lg" target="_blank" rel="noopener">Написать в WhatsApp</a>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__grid">
-        <div class="footer__brand"><a href="../index.html" class="logo"><span class="logo__mark">R<span>•</span></span>RemontPro</a><p>Ремонт квартир, домов и коммерческих помещений под ключ в Геленджике и Новороссийске.</p></div>
-        <div class="footer__col"><h4>Услуги</h4><ul><li><a href="../uslugi/">Ремонт под ключ</a></li><li><a href="../uslugi/">Капитальный ремонт</a></li><li><a href="../uslugi/">Косметический ремонт</a></li><li><a href="../uslugi/">Ремонт ванной</a></li></ul></div>
-        <div class="footer__col"><h4>Разделы</h4><ul><li><a href="../prices/">Цены</a></li><li><a href="../portfolio/">Портфолио</a></li><li><a href="../blog/">Блог</a></li><li><a href="../faq/">FAQ</a></li><li><a href="../contacts/">Контакты</a></li></ul></div>
-        <div class="footer__col"><h4>Контакты</h4><ul class="footer__contacts"><li><a href="tel:PLACEHOLDER_PHONE">+7 (XXX) XXX-XX-XX</a></li><li><a href="https://wa.me/PLACEHOLDER_PHONE" target="_blank" rel="noopener">WhatsApp</a></li><li>Геленджик · Новороссийск</li></ul></div>
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="brand"><span class="brand__mark">R</span><span>RemontPro<small>ремонтная студия</small></span></a>
+          <p>Ремонт квартир, домов и коммерческих помещений под ключ в Геленджике и Новороссийске.</p>
+        </div>
+        <div class="footer-col"><h4>Студия</h4><ul><li><a href="../uslugi/">Услуги</a></li><li><a href="../portfolio/">Портфолио</a></li><li><a href="../videos/">Видео</a></li><li><a href="../prices/">Цены</a></li><li><a href="../blog/">Блог</a></li></ul></div>
+        <div class="footer-col"><h4>Города</h4><ul><li><a href="../goroda/gelendzhik/">Геленджик</a></li><li><a href="../goroda/novorossiysk/">Новороссийск</a></li><li><a href="../faq/">FAQ</a></li><li><a href="../contacts/">Контакты</a></li></ul></div>
+        <div class="footer-col"><h4>Контакты</h4><ul><li><a href="tel:PHONE_PLACEHOLDER">+7 (XXX) XXX-XX-XX</a></li><li><a data-wa="Здравствуйте!" target="_blank" rel="noopener">WhatsApp</a></li><li>Геленджик · Новороссийск</li></ul></div>
       </div>
-      <div class="footer__bottom"><span>© <span class="js-year">2026</span> RemontPro. Все права защищены.</span><a href="#">Политика конфиденциальности</a></div>
+      <div class="footer-bottom"><span>© <span class="js-year">2026</span> RemontPro.</span><span><a href="../admin/" style="color:var(--orange)">Админ-панель</a></span></div>
     </div>
   </footer>
-  <a href="https://wa.me/PLACEHOLDER_PHONE" class="float-wa" target="_blank" rel="noopener" aria-label="Написать в WhatsApp">💬</a>
+
+  <a class="fab-wa" data-wa="Здравствуйте!" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
   <script src="../assets/js/main.js"></script>
 </body>
 </html>
