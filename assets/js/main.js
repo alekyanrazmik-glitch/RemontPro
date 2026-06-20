@@ -187,7 +187,7 @@
     a.className = "project-card";
     a.href = withBase("portfolio/project-template.html?id=" + encodeURIComponent(p.id));
     var bg = p.cover
-      ? "linear-gradient(180deg, rgba(23,51,40,0.04), rgba(23,51,40,0.34)), url('" + encodeURI(withBase(p.cover)) + "')"
+      ? "linear-gradient(180deg, rgba(0, 0, 0,0.04), rgba(0, 0, 0,0.34)), url('" + encodeURI(withBase(p.cover)) + "')"
       : "";
     var num = ("0" + n).slice(-2);
     a.innerHTML =
@@ -322,7 +322,7 @@
       }
       // CTA whatsapp с названием
       var cta = root.querySelector("[data-p='cta-wa']");
-      if (cta) cta.href = waLink("Здравствуйте! Хочу ремонт как в проекте «" + p.title + "».");
+      if (cta) { cta.href = TG_LINK; cta.target = "_blank"; cta.rel = "noopener"; }
     });
   }
 
@@ -364,6 +364,8 @@
   /* ---------- Контакты ---------- */
   var PHONE = "79002721001";
   var LEAD_EMAIL = "prof.remont.25@mail.ru";
+  var TG_LINK = "https://t.me/+" + PHONE;
+  var MAX_LINK = "https://max.ru/u/" + PHONE;
   function waLink(text) {
     return "https://wa.me/" + PHONE + (text ? "?text=" + encodeURIComponent(text) : "");
   }
@@ -412,8 +414,12 @@
     if (projectEl) initProjectPage(projectEl);
 
     // подставить WhatsApp-ссылки с текстом
-    document.querySelectorAll("[data-wa]").forEach(function (el) {
-      el.href = waLink(el.getAttribute("data-wa") || "");
+    // CTA-кнопки мессенджеров: Telegram (data-wa/ data-tg) и MAX (data-max)
+    document.querySelectorAll("[data-wa], [data-tg]").forEach(function (el) {
+      el.href = TG_LINK; el.target = "_blank"; el.rel = "noopener";
+    });
+    document.querySelectorAll("[data-max]").forEach(function (el) {
+      el.href = MAX_LINK; el.target = "_blank"; el.rel = "noopener";
     });
 
     // обработка форм заявок → отправка на e-mail
