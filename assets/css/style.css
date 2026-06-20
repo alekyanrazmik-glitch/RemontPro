@@ -6,11 +6,11 @@
 
 /* ---------- Токены ---------- */
 :root {
-  /* Тёмные графитово-чёрные поверхности (DeWalt: чёрный + жёлтый) */
-  --ink: #161616;
-  --graphite: #1d1d1d;
-  --graphite-2: #2a2a2a;
-  --concrete: #4a4a4a;
+  /* Графитово-серые поверхности (вместо чёрного) */
+  --ink: #2b2b2b;
+  --graphite: #313131;
+  --graphite-2: #3b3b3b;
+  --concrete: #5a5a5a;
 
   /* Тёплый светлый фон */
   --bone: #f6f4ef;
@@ -592,13 +592,13 @@ ul { margin: 0; padding: 0; list-style: none; }
    ============================================================ */
 
 :root {
-  --green: #1c1c1c;
-  --green-dark: #111111;
+  --green: #313131;
+  --green-dark: #262626;
   --sage: #f0c34a;
   --gold: #febd17;
-  --cream: #f6f4ef;
-  --beige: #ece7dd;
-  --text: #1b1b1b;
+  --cream: #f7f4ec;
+  --beige: #efe9db;
+  --text: #242424;
   --muted: rgba(27, 27, 27, 0.66);
   --line: rgba(27, 27, 27, 0.14);
   --white: #ffffff;
@@ -915,3 +915,23 @@ p { color: var(--muted); }
 
 /* Шапка/подвал на новой палитре */
 .site-header { background: rgba(246, 244, 239, 0.85); }
+
+/* ---------- Больше жёлтого, тёмное = серое ---------- */
+/* Жёлтая акцентная полоса вместо тёмной */
+.intro-band { background: var(--gold); }
+.intro-band h2, .intro-band p { color: #1f1f1f; }
+.intro-band p { opacity: 0.82; }
+.intro-band .eyebrow.muted { color: #1f1f1f; }
+
+/* Жёлтый верхний акцент на карточках */
+.project-card { border-top: 3px solid var(--gold); }
+.hero-stats div { border-left: 3px solid var(--gold); }
+.price-card.featured { background: var(--graphite); }
+
+/* CTA-блок (внутренние страницы) — жёлтый с тёмным текстом */
+.cta-bar { background: linear-gradient(135deg, var(--gold), #ffcf45); }
+.cta-bar h2, .cta-bar p { color: #1f1f1f; }
+.cta-bar p { opacity: 0.85; }
+
+/* page-head (шапка внутренних страниц) — серый, не чёрный */
+.page-head { background: var(--graphite); }
