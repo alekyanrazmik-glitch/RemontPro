@@ -472,7 +472,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .dark .js-state { color: var(--muted-light); }
 
 /* плейсхолдер-картинка с градиентом */
-.ph { background: linear-gradient(140deg, var(--concrete), var(--ink)); display: grid; place-items: center; color: rgba(255,255,255,0.5); font-family: var(--display); }
+.ph { background: linear-gradient(140deg, var(--concrete), var(--ink)); background-size: cover; background-position: center; background-repeat: no-repeat; display: grid; place-items: center; color: rgba(255,255,255,0.5); font-family: var(--display); }
 
 /* ============================================================
    АДМИН-ПАНЕЛЬ
@@ -813,7 +813,10 @@ p { color: var(--muted); }
 .footer p, .footer small { color: rgba(255,255,255,0.65); }
 .footer a:hover { color: var(--gold); }
 .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.1fr; gap: 42px; padding-bottom: 36px; border-bottom: 1px solid rgba(255,255,255,0.14); }
-.footer-grid a { display: block; }
+.footer-grid a:not(.brand) { display: block; }
+.footer .brand-mark { width: 48px; height: 48px; flex: 0 0 48px; }
+.brand-mark { display: inline-grid; place-items: center; }
+.brand-mark svg { width: 100%; height: 100%; }
 .footer-grid > div { display: grid; align-content: start; gap: 10px; }
 .footer-brand { margin-bottom: 8px; }
 .footer-bottom { padding-top: 24px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }

@@ -263,7 +263,13 @@
       }
       var cover = root.querySelector("[data-p='cover']");
       if (cover) {
-        if (p.cover) { cover.style.backgroundImage = "url('" + withBase(p.cover) + "')"; cover.textContent = ""; }
+        if (p.cover) {
+          cover.style.backgroundImage = "url('" + withBase(p.cover) + "')";
+          cover.style.backgroundSize = "cover";
+          cover.style.backgroundPosition = "center";
+          cover.style.backgroundRepeat = "no-repeat";
+          cover.textContent = "";
+        }
         else { cover.textContent = p.title; }
         cover.setAttribute("role", "img");
         cover.setAttribute("aria-label", "Главное фото проекта: " + p.title);
@@ -355,8 +361,9 @@
     stage.addEventListener("click", function (e) { if (e.target.closest(".ba__handle")) return; setPos(e.clientX); });
   }
 
-  /* ---------- Телефон / WhatsApp ---------- */
+  /* ---------- Контакты ---------- */
   var PHONE = "79002721001";
+  var LEAD_EMAIL = "prof.remont.25@mail.ru";
   function waLink(text) {
     return "https://wa.me/" + PHONE + (text ? "?text=" + encodeURIComponent(text) : "");
   }
@@ -409,14 +416,19 @@
       el.href = waLink(el.getAttribute("data-wa") || "");
     });
 
-    // обработка форм заявок (демо)
+    // обработка форм заявок → отправка на e-mail
     document.querySelectorAll(".js-lead").forEach(function (form) {
       form.addEventListener("submit", function (e) {
         e.preventDefault();
         var name = (form.querySelector('[name="name"]') || {}).value || "";
         var phone = (form.querySelector('[name="phone"]') || {}).value || "";
+        var msg = (form.querySelector('[name="message"]') || {}).value || "";
         if (name.trim().length < 2) { alert("Укажите имя."); return; }
         if (phone.replace(/\D/g, "").length < 10) { alert("Укажите корректный телефон."); return; }
+        var subject = "Заявка с сайта RemontPro";
+        var body = "Имя: " + name + "\nТелефон: " + phone + (msg ? "\nЗадача: " + msg : "");
+        window.location.href = "mailto:" + LEAD_EMAIL +
+          "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
         var ok = form.querySelector(".form__ok");
         if (ok) { ok.classList.add("show"); setTimeout(function () { ok.classList.remove("show"); }, 6000); }
         form.reset();
@@ -443,7 +455,7 @@
       });
     }
 
-    // форма заявки новой главной → отправка в WhatsApp
+    // форма заявки новой главной → отправка на e-mail
     var leadForm = document.getElementById("leadForm");
     if (leadForm) {
       leadForm.addEventListener("submit", function (e) {
@@ -453,9 +465,10 @@
         var msg = (leadForm.querySelector('[name="message"]') || {}).value || "";
         if (name.trim().length < 2) { alert("Укажите имя."); return; }
         if (phone.replace(/\D/g, "").length < 10) { alert("Укажите корректный телефон."); return; }
-        var text = "Здравствуйте! Меня зовут " + name + ", телефон " + phone +
-          (msg ? ". Задача: " + msg : ".");
-        window.open(waLink(text), "_blank", "noopener");
+        var subject = "Заявка с сайта RemontPro";
+        var body = "Имя: " + name + "\nТелефон: " + phone + (msg ? "\nЗадача: " + msg : "");
+        window.location.href = "mailto:" + LEAD_EMAIL +
+          "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
         leadForm.reset();
       });
     }
