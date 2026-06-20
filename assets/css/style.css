@@ -812,7 +812,8 @@ p { color: var(--muted); }
 .footer h4, .footer .brand-text { color: var(--white); }
 .footer p, .footer small { color: rgba(255,255,255,0.65); }
 .footer a:hover { color: var(--gold); }
-.footer-grid { display: grid; grid-template-columns: 1.4fr 0.9fr 0.9fr; gap: 42px; padding-bottom: 36px; border-bottom: 1px solid rgba(255,255,255,0.14); }
+.footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.1fr; gap: 42px; padding-bottom: 36px; border-bottom: 1px solid rgba(255,255,255,0.14); }
+.footer-grid a { display: block; }
 .footer-grid > div { display: grid; align-content: start; gap: 10px; }
 .footer-brand { margin-bottom: 8px; }
 .footer-bottom { padding-top: 24px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }

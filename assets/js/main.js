@@ -18,6 +18,14 @@
   var LS_PROJECTS = "remontpro_projects";
   var LS_VIDEOS = "remontpro_videos";
 
+  /* Префикс пути к ассетам с учётом глубины страницы.
+     Абсолютные ссылки (http..., //..., /...) и data-URI не трогаем. */
+  function withBase(p) {
+    if (!p) return p;
+    if (/^(https?:)?\/\//.test(p) || p.charAt(0) === "/" || p.indexOf("data:") === 0) return p;
+    return BASE + p;
+  }
+
   /* ---------- Demo-данные (fallback, если нет JSON и localStorage) ---------- */
   var DEMO_PROJECTS = [
     {
@@ -108,7 +116,7 @@
       wrap.textContent = "Видео недоступно";
       return wrap;
     }
-    var thumb = previewUrl || youtubeThumb(id);
+    var thumb = withBase(previewUrl) || youtubeThumb(id);
     var img = document.createElement("img");
     img.className = "video-embed__thumb";
     img.loading = "lazy";
@@ -147,7 +155,7 @@
     a.className = "case";
     a.href = BASE + "portfolio/project-template.html?id=" + encodeURIComponent(p.id);
     var statusCls = p.status === "progress" ? "case__status--progress" : "case__status--done";
-    var imgStyle = p.cover ? ' style="background-image:url(\'' + encodeURI(p.cover) + "')\"" : "";
+    var imgStyle = p.cover ? ' style="background-image:url(\'' + encodeURI(withBase(p.cover)) + "')\"" : "";
     a.innerHTML =
       '<span class="case__status ' + statusCls + '">' + statusLabel(p.status) + "</span>" +
       '<div class="case__img"' + imgStyle + ' role="img" aria-label="' + escapeHtml(p.title) + '"></div>' +
@@ -170,6 +178,35 @@
       var items = limit ? list.slice(0, limit) : list;
       if (!items.length) { container.innerHTML = '<p class="js-state">Проекты скоро появятся.</p>'; return; }
       items.forEach(function (p) { container.appendChild(caseCard(p)); });
+    });
+  }
+
+  /* ---------- Рендер портфолио в новом стиле главной (.project-card) ---------- */
+  function projectCard(p, n) {
+    var a = document.createElement("a");
+    a.className = "project-card";
+    a.href = withBase("portfolio/project-template.html?id=" + encodeURIComponent(p.id));
+    var bg = p.cover
+      ? "linear-gradient(180deg, rgba(23,51,40,0.04), rgba(23,51,40,0.34)), url('" + encodeURI(withBase(p.cover)) + "')"
+      : "";
+    var num = ("0" + n).slice(-2);
+    a.innerHTML =
+      '<div class="project-image"' + (bg ? ' style="background-image:' + bg + '"' : "") + '><span>' + num + "</span></div>" +
+      '<div class="project-body">' +
+        '<p class="project-meta">' + escapeHtml(p.city) + " · " + escapeHtml(p.type) + " · " + escapeHtml(p.area) + " м²</p>" +
+        "<h3>" + escapeHtml(p.title) + "</h3>" +
+        "<p>" + escapeHtml(p.description || "") + "</p>" +
+      "</div>";
+    return a;
+  }
+
+  function renderProjectCards(container, limit) {
+    container.innerHTML = '<p class="js-state">Загружаем проекты…</p>';
+    loadData(LS_PROJECTS, "projects.json", DEMO_PROJECTS).then(function (list) {
+      container.innerHTML = "";
+      var items = limit ? list.slice(0, limit) : list;
+      if (!items.length) { container.innerHTML = '<p class="js-state">Проекты скоро появятся.</p>'; return; }
+      items.forEach(function (p, i) { container.appendChild(projectCard(p, i + 1)); });
     });
   }
 
@@ -226,7 +263,7 @@
       }
       var cover = root.querySelector("[data-p='cover']");
       if (cover) {
-        if (p.cover) { cover.style.backgroundImage = "url('" + p.cover + "')"; cover.textContent = ""; }
+        if (p.cover) { cover.style.backgroundImage = "url('" + withBase(p.cover) + "')"; cover.textContent = ""; }
         else { cover.textContent = p.title; }
         cover.setAttribute("role", "img");
         cover.setAttribute("aria-label", "Главное фото проекта: " + p.title);
@@ -239,7 +276,7 @@
           gal.innerHTML = "";
           imgs.forEach(function (src, i) {
             var im = document.createElement("img");
-            im.src = src; im.loading = "lazy"; im.alt = p.title + " — фото " + (i + 1);
+            im.src = withBase(src); im.loading = "lazy"; im.alt = p.title + " — фото " + (i + 1);
             gal.appendChild(im);
           });
         } else {
@@ -271,8 +308,8 @@
         if (p.before || p.after) {
           var bEl = baSec.querySelector(".ba__before");
           var aEl = baSec.querySelector(".ba__after");
-          if (bEl && p.before) bEl.style.backgroundImage = "url('" + p.before + "')";
-          if (aEl && p.after) aEl.style.backgroundImage = "url('" + p.after + "')";
+          if (bEl && p.before) bEl.style.backgroundImage = "url('" + withBase(p.before) + "')";
+          if (aEl && p.after) aEl.style.backgroundImage = "url('" + withBase(p.after) + "')";
         } else {
           baSec.style.display = "none";
         }
@@ -357,6 +394,9 @@
     // рендер блоков по data-атрибутам
     var casesEl = document.querySelector("[data-render='cases']");
     if (casesEl) renderCases(casesEl, parseInt(casesEl.getAttribute("data-limit"), 10) || 0);
+
+    var projCardsEl = document.querySelector("[data-render='home-projects']");
+    if (projCardsEl) renderProjectCards(projCardsEl, parseInt(projCardsEl.getAttribute("data-limit"), 10) || 0);
 
     var videosEl = document.querySelector("[data-render='videos']");
     if (videosEl) renderVideos(videosEl, parseInt(videosEl.getAttribute("data-limit"), 10) || 0);
