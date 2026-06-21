@@ -1,34 +1,18 @@
 [
   {
     "id": "v1",
-    "title": "Обзор ремонта в ЖК «Морской»",
-    "description": "Финальный видеотур по сданной квартире 64 м² в Геленджике.",
-    "youtubeUrl": "https://youtu.be/dQw4w9WgXcQ",
+    "title": "Видео с объекта RemontPro",
+    "description": "Реальный объект студии — видеообзор выполненного ремонта.",
+    "youtubeUrl": "https://youtu.be/IwVRocpyx9k",
     "preview": "",
-    "category": "Объект сдан"
+    "category": "Объект"
   },
   {
     "id": "v2",
-    "title": "Этап черновых работ",
-    "description": "Показываем, как готовим стены и стяжку перед чистовой отделкой.",
-    "youtubeUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    "title": "Видео с объекта RemontPro",
+    "description": "Ещё один объект студии — видео с ремонта.",
+    "youtubeUrl": "https://youtu.be/XoWr_AcupGg",
     "preview": "",
-    "category": "Процесс"
-  },
-  {
-    "id": "v3",
-    "title": "До и после: трёшка в Новороссийске",
-    "description": "Сравниваем состояние квартиры до начала и в процессе ремонта.",
-    "youtubeUrl": "https://youtu.be/dQw4w9WgXcQ",
-    "preview": "",
-    "category": "До / После"
-  },
-  {
-    "id": "v4",
-    "title": "Как мы ведём смету и контроль",
-    "description": "Рассказываем про прозрачную смету, поэтапную оплату и фотофиксацию.",
-    "youtubeUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-    "preview": "",
-    "category": "Как мы работаем"
+    "category": "Объект"
   }
 ]

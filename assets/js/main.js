@@ -178,6 +178,7 @@
       var items = limit ? list.slice(0, limit) : list;
       if (!items.length) { container.innerHTML = '<p class="js-state">Проекты скоро появятся.</p>'; return; }
       items.forEach(function (p) { container.appendChild(caseCard(p)); });
+      initReveal();
     });
   }
 
@@ -207,6 +208,7 @@
       var items = limit ? list.slice(0, limit) : list;
       if (!items.length) { container.innerHTML = '<p class="js-state">Проекты скоро появятся.</p>'; return; }
       items.forEach(function (p, i) { container.appendChild(projectCard(p, i + 1)); });
+      initReveal();
     });
   }
 
@@ -233,6 +235,7 @@
       var items = limit ? list.slice(0, limit) : list;
       if (!items.length) { container.innerHTML = '<p class="js-state">Видео скоро появятся.</p>'; return; }
       items.forEach(function (v) { container.appendChild(videoCard(v)); });
+      initReveal();
     });
   }
 
@@ -363,6 +366,26 @@
     window.addEventListener("pointermove", function (e) { if (dragging) setPos(e.clientX); });
     stage.addEventListener("click", function (e) { if (e.target.closest(".ba__handle")) return; setPos(e.clientX); });
   }
+
+  /* ---------- Анимация появления при прокрутке ---------- */
+  var revealIO = null;
+  function initReveal(extraSelector) {
+    if (!("IntersectionObserver" in window)) return;
+    if (!revealIO) {
+      revealIO = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add("in"); revealIO.unobserve(e.target); }
+        });
+      }, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
+    }
+    var sel = ".hero-copy, .hero-visual, .section-head, .service-card, .price-card, " +
+      ".step, .project-card, .lead-form, .post, .video-card, .case, .intro-grid";
+    if (extraSelector) sel = extraSelector;
+    document.querySelectorAll(sel).forEach(function (el) {
+      if (!el.classList.contains("reveal")) { el.classList.add("reveal"); revealIO.observe(el); }
+    });
+  }
+  window.RP_initReveal = initReveal;
 
   /* ---------- Контакты ---------- */
   var PHONE = "79002721001";
@@ -519,6 +542,9 @@
     if (y) y.textContent = new Date().getFullYear();
     var y2 = document.getElementById("year");
     if (y2) y2.textContent = new Date().getFullYear();
+
+    // анимация появления при прокрутке
+    initReveal();
 
     // мобильное меню новой главной (.menu-button / .nav)
     var menuBtn = document.querySelector(".menu-button");
