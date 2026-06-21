@@ -186,12 +186,12 @@
     var a = document.createElement("a");
     a.className = "project-card";
     a.href = withBase("portfolio/project-template.html?id=" + encodeURIComponent(p.id));
-    var bg = p.cover
-      ? "linear-gradient(180deg, rgba(0, 0, 0,0.04), rgba(0, 0, 0,0.34)), url('" + encodeURI(withBase(p.cover)) + "')"
-      : "";
     var num = ("0" + n).slice(-2);
+    var img = p.cover
+      ? '<img class="project-photo" src="' + encodeURI(withBase(p.cover)) + '" alt="' + escapeHtml(p.title) + '" loading="lazy">'
+      : '<span class="project-ph">' + num + "</span>";
     a.innerHTML =
-      '<div class="project-image"' + (bg ? ' style="background-image:' + bg + '"' : "") + '><span>' + num + "</span></div>" +
+      '<div class="project-image">' + img + "</div>" +
       '<div class="project-body">' +
         '<p class="project-meta">' + escapeHtml(p.city) + " · " + escapeHtml(p.type) + " · " + escapeHtml(p.area) + " м²</p>" +
         "<h3>" + escapeHtml(p.title) + "</h3>" +
