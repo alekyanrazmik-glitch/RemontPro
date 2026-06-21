@@ -264,11 +264,14 @@
       var cover = root.querySelector("[data-p='cover']");
       if (cover) {
         if (p.cover) {
-          cover.style.backgroundImage = "url('" + withBase(p.cover) + "')";
-          cover.style.backgroundSize = "cover";
-          cover.style.backgroundPosition = "center";
-          cover.style.backgroundRepeat = "no-repeat";
-          cover.textContent = "";
+          // показываем обложку целиком (без обрезки), естественной высотой
+          cover.style.aspectRatio = "auto";
+          cover.style.minHeight = "0";
+          cover.style.background = "none";
+          cover.classList.remove("ph");
+          cover.innerHTML = '<img src="' + withBase(p.cover) + '" alt="' +
+            escapeHtml(p.title) + '" loading="eager" ' +
+            'style="width:100%;height:auto;display:block;border-radius:var(--r-lg)">';
         }
         else { cover.textContent = p.title; }
         cover.setAttribute("role", "img");
