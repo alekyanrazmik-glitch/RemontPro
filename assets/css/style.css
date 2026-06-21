@@ -957,3 +957,10 @@ p { color: var(--muted); }
   .photo-card-main { transition: transform 0.6s ease; }
   .photo-card-main:hover { transform: scale(1.015); }
 }
+
+/* ---------- SEO-страницы: перелинковка и каталог ---------- */
+.seo-rel { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 8px 28px; }
+.seo-rel a { color: var(--ink); font-size: 0.95rem; padding: 7px 0; border-bottom: 1px solid var(--line); }
+.seo-rel a:hover { color: var(--amber-ink); }
+.seo-group { margin-bottom: 40px; }
+.seo-group h2 { font-size: 1.4rem; margin-bottom: 14px; }
