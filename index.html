@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RemontPro — ремонт квартир у моря под контролем</title>
   <meta name="description" content="RemontPro — ремонт квартир, домов и коммерческих помещений под ключ в Геленджике и Новороссийске. Смета, договор, фотоотчёты, контроль сроков и качества." />
-  <meta name="keywords" content="ремонт квартир Геленджик, ремонт квартир Новороссийск, ремонт под ключ, ремонт у моря, RemontPro" />
+  <meta name="keywords" content="ремонт квартир Геленджик, ремонт квартир Новороссийск, ремонт под ключ, ремонт под ключ, RemontPro" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://remont-kk.ru/" />
 
@@ -51,7 +51,7 @@
         <span class="brand-mark" aria-hidden="true">
           <svg viewBox="0 0 100 100" role="img"><rect width="100" height="100" rx="22"/><path d="M26 58c8-8 16-8 24 0s16 8 24 0"/><rect x="26" y="29" width="38" height="7" rx="3.5"/><rect x="26" y="44" width="25" height="7" rx="3.5"/></svg>
         </span>
-        <span class="brand-text">RemontPro<small>ремонт у моря</small></span>
+        <span class="brand-text">RemontPro<small>ремонт под ключ</small></span>
       </a>
 
       <nav class="nav" aria-label="Главное меню">
@@ -182,11 +182,13 @@
           <h2>Расскажите о квартире — мы подскажем порядок бюджета</h2>
           <p>Ответим в Telegram, MAX или по телефону. Можно отправить план, фото или просто описать задачу.</p>
         </div>
-        <form class="lead-form" id="leadForm">
-          <label>Ваше имя<input name="name" type="text" placeholder="Например, Размик" required /></label>
-          <label>Телефон<input name="phone" type="tel" placeholder="+7 ___ ___-__-__" required /></label>
-          <label>Что нужно сделать?<textarea name="message" rows="4" placeholder="Квартира, площадь, город, примерный срок"></textarea></label>
+        <form class="lead-form" id="leadForm" novalidate>
+          <label>Ваше имя<input name="name" type="text" inputmode="text" pattern="[А-Яа-яЁё\s-]+" placeholder="Например, Иван" required /></label>
+          <label>Телефон<input name="phone" type="tel" value="+7 " placeholder="+7 (___) ___-__-__" required /></label>
+          <label>Площадь, м²<input name="area" type="number" min="1" inputmode="numeric" placeholder="Например, 64" required /></label>
+          <label>Что нужно сделать?<textarea name="message" rows="3" placeholder="Опишите задачу: тип ремонта, город, сроки"></textarea></label>
           <button class="btn btn-primary" type="submit">Отправить заявку</button>
+          <div class="form__ok">Спасибо! Заявка отправлена — мы свяжемся с вами в ближайшее время.</div>
           <p class="form-note">Также можно написать: <a href="mailto:prof.remont.25@mail.ru">prof.remont.25@mail.ru</a></p>
         </form>
       </div>
@@ -198,7 +200,7 @@
       <div>
         <a class="brand footer-brand" href="#top">
           <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 100 100"><rect width="100" height="100" rx="22"/><path d="M26 58c8-8 16-8 24 0s16 8 24 0"/><rect x="26" y="29" width="38" height="7" rx="3.5"/><rect x="26" y="44" width="25" height="7" rx="3.5"/></svg></span>
-          <span class="brand-text">RemontPro<small>ремонт у моря</small></span>
+          <span class="brand-text">RemontPro<small>ремонт под ключ</small></span>
         </a>
         <p>Ремонт квартир, домов и коммерческих помещений под ключ в Геленджике и Новороссийске.</p>
       </div>

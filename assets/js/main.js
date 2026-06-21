@@ -366,8 +366,91 @@
   var LEAD_EMAIL = "prof.remont.25@mail.ru";
   var TG_LINK = "https://t.me/+" + PHONE;
   var MAX_LINK = "https://max.ru/u/" + PHONE;
+  /* Telegram-бот для дублирования заявок (тот же, что на dom-kk.ru) */
+  var TG_BOT = "8550556751:AAF9LssjvB-5NkCu4yeOO2-eN2zuqqCKP1o";
+  var TG_CHAT = "523060537";
   function waLink(text) {
     return "https://wa.me/" + PHONE + (text ? "?text=" + encodeURIComponent(text) : "");
+  }
+
+  /* Маска телефона: всегда начинается с +7 (XXX) XXX-XX-XX */
+  function fmtPhone(v) {
+    var d = String(v).replace(/\D/g, "");
+    if (d.charAt(0) === "8") d = "7" + d.slice(1);
+    if (d.charAt(0) !== "7") d = "7" + d;
+    d = d.slice(0, 11);
+    var r = "+7";
+    if (d.length > 1) r += " (" + d.slice(1, 4);
+    if (d.length >= 4) r += ") " + d.slice(4, 7);
+    if (d.length >= 7) r += "-" + d.slice(7, 9);
+    if (d.length >= 9) r += "-" + d.slice(9, 11);
+    return r;
+  }
+  function phoneDigits(v) { return String(v).replace(/\D/g, ""); }
+  /* Имя — только кириллица, пробел и дефис */
+  function filterName(v) { return String(v).replace(/[^А-Яа-яЁё\s-]/g, ""); }
+
+  function attachLeadInputs(form) {
+    var ph = form.querySelector('[name="phone"]');
+    if (ph) {
+      if (!ph.value) ph.value = "+7 ";
+      ph.addEventListener("focus", function () { if (!ph.value) ph.value = "+7 "; });
+      ph.addEventListener("input", function () { ph.value = fmtPhone(ph.value); });
+    }
+    var nm = form.querySelector('[name="name"]');
+    if (nm) nm.addEventListener("input", function () {
+      var s = nm.selectionStart; nm.value = filterName(nm.value); nm.setSelectionRange(s, s);
+    });
+  }
+
+  /* Отправка заявки: e-mail (FormSubmit) + дубль в Telegram-бот */
+  function sendLead(d) {
+    var lines = [
+      "🛠 <b>Заявка с сайта RemontPro</b>",
+      "<b>Имя:</b> " + (d.name || "—"),
+      "<b>Телефон:</b> " + (d.phone || "—")
+    ];
+    if (d.area) lines.push("<b>Площадь:</b> " + d.area + " м²");
+    if (d.city) lines.push("<b>Город:</b> " + d.city);
+    if (d.message) lines.push("<b>Задача:</b> " + d.message);
+    var tasks = [];
+    tasks.push(fetch("https://api.telegram.org/bot" + TG_BOT + "/sendMessage", {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ chat_id: TG_CHAT, text: lines.join("\n"), parse_mode: "HTML", disable_web_page_preview: true })
+    }).catch(function () {}));
+    tasks.push(fetch("https://formsubmit.co/ajax/" + LEAD_EMAIL, {
+      method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify({
+        _subject: "Заявка с сайта RemontPro",
+        name: d.name || "—", phone: d.phone || "—",
+        "Площадь": d.area ? d.area + " м²" : "—",
+        city: d.city || "—", "Задача": d.message || "—",
+        _template: "table"
+      })
+    }).catch(function () {}));
+    return Promise.all(tasks);
+  }
+
+  function handleLead(form) {
+    var name = (form.querySelector('[name="name"]') || {}).value || "";
+    var phoneEl = form.querySelector('[name="phone"]') || {};
+    var phone = phoneEl.value || "";
+    var area = (form.querySelector('[name="area"]') || {}).value || "";
+    var city = (form.querySelector('[name="city"]') || {}).value || "";
+    var msg = (form.querySelector('[name="message"]') || {}).value || "";
+    if (filterName(name).trim().length < 2) { alert("Укажите имя кириллицей."); return; }
+    if (phoneDigits(phone).length < 11) { alert("Укажите корректный телефон в формате +7 (___) ___-__-__."); return; }
+    if (form.querySelector('[name="area"]') && !String(area).trim()) { alert("Укажите площадь, м²."); return; }
+    var btn = form.querySelector('[type="submit"]');
+    if (btn) { btn.disabled = true; var bt = btn.textContent; btn.textContent = "Отправляем…"; }
+    sendLead({ name: name, phone: phone, area: area, city: city, message: msg }).then(function () {
+      var ok = form.querySelector(".form__ok");
+      if (ok) { ok.classList.add("show"); setTimeout(function () { ok.classList.remove("show"); }, 8000); }
+      else { alert("Спасибо! Заявка отправлена — мы свяжемся с вами."); }
+      form.reset();
+      var ph = form.querySelector('[name="phone"]'); if (ph) ph.value = "+7 ";
+      if (btn) { btn.disabled = false; btn.textContent = bt; }
+    });
   }
 
   /* ---------- Инициализация общих элементов ---------- */
@@ -422,23 +505,10 @@
       el.href = MAX_LINK; el.target = "_blank"; el.rel = "noopener";
     });
 
-    // обработка форм заявок → отправка на e-mail
+    // формы заявок (внутренние страницы) → e-mail + Telegram
     document.querySelectorAll(".js-lead").forEach(function (form) {
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        var name = (form.querySelector('[name="name"]') || {}).value || "";
-        var phone = (form.querySelector('[name="phone"]') || {}).value || "";
-        var msg = (form.querySelector('[name="message"]') || {}).value || "";
-        if (name.trim().length < 2) { alert("Укажите имя."); return; }
-        if (phone.replace(/\D/g, "").length < 10) { alert("Укажите корректный телефон."); return; }
-        var subject = "Заявка с сайта RemontPro";
-        var body = "Имя: " + name + "\nТелефон: " + phone + (msg ? "\nЗадача: " + msg : "");
-        window.location.href = "mailto:" + LEAD_EMAIL +
-          "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
-        var ok = form.querySelector(".form__ok");
-        if (ok) { ok.classList.add("show"); setTimeout(function () { ok.classList.remove("show"); }, 6000); }
-        form.reset();
-      });
+      attachLeadInputs(form);
+      form.addEventListener("submit", function (e) { e.preventDefault(); handleLead(form); });
     });
 
     // год в футере (старый .js-year и новый #year)
@@ -461,22 +531,11 @@
       });
     }
 
-    // форма заявки новой главной → отправка на e-mail
+    // форма заявки на главной → e-mail + Telegram
     var leadForm = document.getElementById("leadForm");
     if (leadForm) {
-      leadForm.addEventListener("submit", function (e) {
-        e.preventDefault();
-        var name = (leadForm.querySelector('[name="name"]') || {}).value || "";
-        var phone = (leadForm.querySelector('[name="phone"]') || {}).value || "";
-        var msg = (leadForm.querySelector('[name="message"]') || {}).value || "";
-        if (name.trim().length < 2) { alert("Укажите имя."); return; }
-        if (phone.replace(/\D/g, "").length < 10) { alert("Укажите корректный телефон."); return; }
-        var subject = "Заявка с сайта RemontPro";
-        var body = "Имя: " + name + "\nТелефон: " + phone + (msg ? "\nЗадача: " + msg : "");
-        window.location.href = "mailto:" + LEAD_EMAIL +
-          "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
-        leadForm.reset();
-      });
+      attachLeadInputs(leadForm);
+      leadForm.addEventListener("submit", function (e) { e.preventDefault(); handleLead(leadForm); });
     }
   });
 })();
