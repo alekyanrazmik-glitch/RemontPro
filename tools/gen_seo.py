@@ -133,7 +133,7 @@ METRIKA = '''  <!-- Yandex.Metrika counter -->
   <noscript><div><img src="https://mc.yandex.ru/watch/110038302" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
   <!-- /Yandex.Metrika counter -->'''
 
-FAVICON = '''<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23111111'/%3E%3Cpath d='M28 56c7-7 14-7 21 0s14 7 21 0' stroke='%23FEBD17' stroke-width='7' fill='none' stroke-linecap='round'/%3E%3Crect x='28' y='30' width='36' height='7' rx='3.5' fill='white'/%3E%3Crect x='28' y='44' width='24' height='7' rx='3.5' fill='%23FEBD17'/%3E%3C/svg%3E\" />'''
+FAVICON = '''<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%231C1F24'/%3E%3Cpath d='M28 56c7-7 14-7 21 0s14 7 21 0' stroke='%232563EB' stroke-width='7' fill='none' stroke-linecap='round'/%3E%3Crect x='28' y='30' width='36' height='7' rx='3.5' fill='white'/%3E%3Crect x='28' y='44' width='24' height='7' rx='3.5' fill='%232563EB'/%3E%3C/svg%3E\" />'''
 
 def page(service, location, city, idx, all_pairs):
     s = service; loc = location
@@ -204,7 +204,7 @@ def page(service, location, city, idx, all_pairs):
   <meta property="og:title" content="{esc(title)}" />
   <meta property="og:description" content="{esc(desc)}" />
   <meta property="og:url" content="{url}" />
-  <meta name="theme-color" content="#111111" />
+  <meta name="theme-color" content="#1c1f24" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
@@ -317,7 +317,7 @@ def main():
 <title>Услуги по ремонту и районы — RemontPro (Геленджик, Новороссийск, Анапа)</title>
 <meta name="description" content="Все услуги ремонта RemontPro по районам и населённым пунктам Геленджика, Новороссийска и Анапы: квартиры, ванные, кухни, дома, коммерческие помещения."/>
 <link rel="canonical" href="{SITE}/r/"/>
-<meta name="theme-color" content="#111111"/>
+<meta name="theme-color" content="#1c1f24"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="{PREFIX}assets/css/style.css"/>
