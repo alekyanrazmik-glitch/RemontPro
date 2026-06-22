@@ -6,35 +6,35 @@
 
 /* ---------- Токены ---------- */
 :root {
-  /* Графитово-чёрные поверхности */
-  --ink: #1c1f24;
-  --graphite: #20242b;
-  --graphite-2: #2b3038;
-  --concrete: #5b626d;
+  /* Чёрно-графитовые поверхности */
+  --ink: #141414;
+  --graphite: #1e1e1e;
+  --graphite-2: #2a2a2a;
+  --concrete: #565656;
 
-  /* Светлый (бело-серый) фон */
-  --bone: #f5f6f8;
-  --bone-2: #eceef1;
-  --sand: #dfe3e8;
+  /* Светлый серо-белый фон */
+  --bone: #f4f4f2;
+  --bone-2: #e9e8e4;
+  --sand: #e0ddd4;
   --paper: #ffffff;
 
-  --text: #1c1f24;
-  --muted: #5b626d;
-  --muted-light: rgba(240, 242, 245, 0.72);
+  --text: #141414;
+  --muted: #565656;
+  --muted-light: rgba(244, 244, 242, 0.72);
 
-  /* Сдержанный синий — акцент */
-  --orange: #2563eb;
-  --orange-2: #1e4fd0;
-  --orange-soft: rgba(37, 99, 235, 0.12);
+  /* Жёлтый — основной акцент */
+  --orange: #febd17;
+  --orange-2: #ffce4d;
+  --orange-soft: rgba(254, 189, 23, 0.16);
 
-  /* Синий для текста-акцента на светлом (читаемый) */
-  --amber-ink: #1f54c7;
+  /* Янтарный для текста-акцента на светлом (читаемый) */
+  --amber-ink: #8a6500;
 
-  /* Серо-синий вспомогательный */
-  --sage: #8a97a8;
+  /* Светло-жёлтый вспомогательный */
+  --sage: #f0c34a;
 
-  --line: rgba(28, 31, 36, 0.1);
-  --line-light: rgba(240, 242, 245, 0.16);
+  --line: rgba(20, 20, 20, 0.1);
+  --line-light: rgba(244, 244, 242, 0.16);
 
   --r-sm: 8px;
   --r: 16px;
@@ -145,7 +145,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .btn--wa { background: #25d366; color: #fff; }
 .btn--wa:hover { background: #1fbf5a; }
 .btn--ghost { background: transparent; border-color: currentColor; color: inherit; }
-.btn--ghost:hover { background: rgba(37, 99, 235, 0.1); border-color: var(--orange); color: var(--orange); }
+.btn--ghost:hover { background: rgba(254, 189, 23, 0.1); border-color: var(--orange); color: var(--orange); }
 .btn--ghost-light { background: transparent; border-color: var(--line-light); color: var(--bone); }
 .btn--ghost-light:hover { background: rgba(244,239,230,0.08); border-color: var(--bone); }
 .btn--block { width: 100%; }
@@ -199,8 +199,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 .hero__bg::before {
   content: ""; position: absolute; inset: 0;
   background:
-    radial-gradient(120% 90% at 80% -10%, rgba(37, 99, 235, 0.36), transparent 55%),
-    radial-gradient(90% 80% at 0% 110%, rgba(37, 99, 235, 0.16), transparent 60%),
+    radial-gradient(120% 90% at 80% -10%, rgba(254, 189, 23, 0.36), transparent 55%),
+    radial-gradient(90% 80% at 0% 110%, rgba(254, 189, 23, 0.16), transparent 60%),
     linear-gradient(180deg, #1c1c1c 0%, #111111 100%);
 }
 .hero__bg::after { content: ""; position: absolute; inset: 0; background: var(--concrete-tex); opacity: 0.55; mix-blend-mode: overlay; }
@@ -210,7 +210,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   width: 46vw; max-width: 720px; aspect-ratio: 4/5; z-index: 0;
   border-radius: 30px; overflow: hidden;
   background:
-    linear-gradient(135deg, rgba(37, 99, 235,0.5), rgba(40,44,54,0.2)),
+    linear-gradient(135deg, rgba(254, 189, 23,0.5), rgba(40,44,54,0.2)),
     repeating-linear-gradient(115deg, #2a2a2a 0 2px, transparent 2px 46px),
     linear-gradient(160deg, #2a2a2a, #111111);
   box-shadow: var(--shadow);
@@ -343,7 +343,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .control-list { display: grid; gap: 16px; }
 .control-list li { display: flex; gap: 14px; align-items: flex-start; }
 .control-list .tick { flex-shrink: 0; width: 26px; height: 26px; border-radius: 8px; background: var(--orange-soft); color: var(--orange); display: grid; place-items: center; font-weight: 700; }
-.panel-card--ink .control-list .tick { background: rgba(37, 99, 235,0.2); }
+.panel-card--ink .control-list .tick { background: rgba(254, 189, 23,0.2); }
 
 /* ---------- Визуальная лента ремонта ---------- */
 .ribbon { overflow: hidden; }
@@ -402,7 +402,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 /* ---------- Внутренние страницы ---------- */
 .page-head { background: var(--graphite); color: var(--bone); position: relative; overflow: hidden; padding: clamp(54px, 8vw, 96px) 0; }
-.page-head::after { content: ""; position: absolute; inset: 0; background: radial-gradient(90% 120% at 90% 0%, rgba(37, 99, 235,0.3), transparent 55%); }
+.page-head::after { content: ""; position: absolute; inset: 0; background: radial-gradient(90% 120% at 90% 0%, rgba(254, 189, 23,0.3), transparent 55%); }
 .page-head > * { position: relative; z-index: 1; }
 .crumbs { font-size: 0.86rem; color: var(--muted-light); margin-bottom: 18px; }
 .crumbs a:hover { color: var(--orange); }
@@ -439,7 +439,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 /* Тарифы (prices) */
 .tiers { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
 .tier { background: var(--graphite-2); border: 1px solid var(--line-light); border-radius: var(--r-lg); padding: 30px; display: flex; flex-direction: column; }
-.tier--feat { background: linear-gradient(165deg, rgba(37, 99, 235,0.22), rgba(42,46,56,0.4)); border-color: var(--orange); }
+.tier--feat { background: linear-gradient(165deg, rgba(254, 189, 23,0.22), rgba(42,46,56,0.4)); border-color: var(--orange); }
 .tier__badge { align-self: flex-start; font-family: var(--display); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; background: var(--orange); color: #fff; padding: 4px 12px; border-radius: var(--r-pill); margin-bottom: 16px; }
 .tier h3 { color: var(--bone); font-size: 1.2rem; }
 .tier__price { font-family: var(--display); font-size: 2rem; font-weight: 700; color: var(--orange); margin-bottom: 4px; }
@@ -592,15 +592,15 @@ ul { margin: 0; padding: 0; list-style: none; }
    ============================================================ */
 
 :root {
-  --green: #1c1f24;
-  --green-dark: #14171c;
-  --sage: #8a97a8;
-  --gold: #2563eb;
-  --cream: #f5f6f8;
-  --beige: #eceef1;
-  --text: #1c1f24;
-  --muted: rgba(28, 31, 36, 0.66);
-  --line: rgba(28, 31, 36, 0.12);
+  --green: #1e1e1e;
+  --green-dark: #141414;
+  --sage: #f0c34a;
+  --gold: #febd17;
+  --cream: #f4f4f2;
+  --beige: #e9e8e4;
+  --text: #141414;
+  --muted: rgba(20, 20, 20, 0.66);
+  --line: rgba(20, 20, 20, 0.12);
   --white: #ffffff;
   --shadow-sm: 0 10px 30px rgba(0, 0, 0, 0.08);
   --shadow-md: 0 20px 55px rgba(0, 0, 0, 0.14);
@@ -629,7 +629,7 @@ body {
   line-height: 1.65;
   color: var(--text);
   background:
-    radial-gradient(circle at top left, rgba(37, 99, 235, 0.2), transparent 34rem),
+    radial-gradient(circle at top left, rgba(254, 189, 23, 0.2), transparent 34rem),
     linear-gradient(180deg, var(--cream) 0%, var(--beige) 100%);
   overflow-x: hidden;
 }
@@ -725,7 +725,7 @@ p { color: var(--muted); }
 .menu-button.is-open span:last-child { transform: translateY(-3.5px) rotate(-45deg); }
 
 .hero { position: relative; overflow: hidden; padding-top: 66px; }
-.hero::after { content: ""; position: absolute; right: -12%; top: 8%; width: 42vw; height: 42vw; border-radius: 50%; background: rgba(37, 99, 235,0.13); filter: blur(10px); pointer-events: none; }
+.hero::after { content: ""; position: absolute; right: -12%; top: 8%; width: 42vw; height: 42vw; border-radius: 50%; background: rgba(254, 189, 23,0.13); filter: blur(10px); pointer-events: none; }
 .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1.02fr) minmax(360px, 0.98fr); gap: 58px; align-items: center; }
 .hero-copy > p { max-width: 650px; font-size: clamp(1.05rem, 2vw, 1.28rem); margin-bottom: 34px; }
 .eyebrow { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 18px; color: var(--gold); font-weight: 800; font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; }
@@ -742,14 +742,14 @@ p { color: var(--muted); }
   position: relative;
   overflow: hidden;
   background:
-    linear-gradient(135deg, rgba(0, 0, 0,0.12), rgba(37, 99, 235,0.16)),
+    linear-gradient(135deg, rgba(0, 0, 0,0.12), rgba(254, 189, 23,0.16)),
     linear-gradient(145deg, var(--beige) 0%, var(--cream) 34%, var(--sage) 70%, var(--green) 100%);
   background-size: cover;
   background-position: center;
 }
 .photo-card-main { height: 580px; border: 12px solid rgba(255,255,255,0.72); border-radius: 42px; box-shadow: var(--shadow-lg); }
 .photo-card::before, .project-image::before { content: ""; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(250,249,245,0.08), transparent 45%), radial-gradient(circle at 30% 22%, rgba(255,255,255,0.55), transparent 22%); }
-.photo-card::after { content: ""; position: absolute; left: 12%; right: 12%; bottom: 18%; height: 34%; border-radius: 26px 26px 0 0; background: rgba(250,249,245,0.74); box-shadow: 0 -70px 0 -38px rgba(27, 27, 27,0.5), 0 -118px 0 -54px rgba(37, 99, 235,0.52); }
+.photo-card::after { content: ""; position: absolute; left: 12%; right: 12%; bottom: 18%; height: 34%; border-radius: 26px 26px 0 0; background: rgba(250,249,245,0.74); box-shadow: 0 -70px 0 -38px rgba(27, 27, 27,0.5), 0 -118px 0 -54px rgba(254, 189, 23,0.52); }
 .photo-card[data-photo-slot]::after { display: none; }
 .photo-label { position: absolute; left: 28px; top: 28px; z-index: 2; padding: 9px 14px; border-radius: 999px; background: rgba(0, 0, 0,0.78); color: var(--white); font-weight: 800; font-size: 0.82rem; letter-spacing: 0.08em; }
 .floating-card { position: absolute; z-index: 3; display: grid; gap: 2px; max-width: 220px; padding: 18px 20px; border: 1px solid rgba(255,255,255,0.5); border-radius: 22px; background: rgba(250,249,245,0.86); backdrop-filter: blur(14px); box-shadow: var(--shadow-md); }
@@ -803,11 +803,11 @@ p { color: var(--muted); }
 .price { color: var(--green); font-size: clamp(1.6rem, 3vw, 2.35rem); font-weight: 800; margin: 12px 0; }
 .price-card > span { color: var(--muted); }
 
-.lead-section { background: linear-gradient(135deg, rgba(37, 99, 235,0.22), rgba(37, 99, 235,0.12)); }
+.lead-section { background: linear-gradient(135deg, rgba(254, 189, 23,0.22), rgba(254, 189, 23,0.12)); }
 .lead-form { padding: 30px; display: grid; gap: 18px; }
 .lead-form label { display: grid; gap: 8px; color: var(--green-dark); font-weight: 800; }
 .lead-form input, .lead-form textarea { width: 100%; border: 1px solid rgba(27, 27, 27,0.18); border-radius: 18px; background: rgba(250,249,245,0.82); color: var(--text); padding: 15px 16px; resize: vertical; outline: none; transition: border-color var(--transition), box-shadow var(--transition), background var(--transition); }
-.lead-form input:focus, .lead-form textarea:focus { border-color: var(--sage); background: var(--white); box-shadow: 0 0 0 4px rgba(37, 99, 235,0.24); }
+.lead-form input:focus, .lead-form textarea:focus { border-color: var(--sage); background: var(--white); box-shadow: 0 0 0 4px rgba(254, 189, 23,0.24); }
 .form-note { margin: 0; font-size: 0.92rem; }
 .form-note a { color: var(--green); font-weight: 800; }
 
@@ -891,48 +891,48 @@ p { color: var(--muted); }
 .btn--orange, .btn--dark, .btn--wa { box-shadow: none; }
 
 /* ============================================================
-   Палитра: графит/чёрный + белый + сдержанный синий акцент.
-   Синий — для заливок/кнопок (белый текст поверх),
-   текст-акцент на светлом — читаемый синий (--amber-ink).
+   Палитра: жёлтый + чёрный + серый.
+   Жёлтый — для заливок/кнопок (чёрный текст поверх),
+   текст-акцент на светлом — янтарный (--amber-ink).
    ============================================================ */
-/* Главная кнопка — синяя с белым текстом */
-.btn-primary { background: var(--gold); border-color: var(--gold); color: #fff; }
-.btn-primary:hover { background: var(--orange-2); border-color: var(--orange-2); color: #fff; }
-.btn-ghost { background: rgba(255,255,255,0.7); color: var(--ink); border-color: var(--line); }
+/* Главная кнопка — жёлтая с чёрным текстом */
+.btn-primary { background: var(--gold); border-color: var(--gold); color: #111; }
+.btn-primary:hover { background: var(--orange-2); border-color: var(--orange-2); color: #111; }
+.btn-ghost { background: rgba(255,255,255,0.6); color: var(--ink); border-color: var(--line); }
 
-/* Текст-акцент на светлом фоне — читаемый синий */
+/* Текст-акцент на светлом фоне — читаемый янтарный */
 .eyebrow, .project-meta, .video-card__cat, .kicker { color: var(--amber-ink); }
 .eyebrow::before { background: var(--gold); }
 .price-table td:last-child, .estimate-total b { color: var(--amber-ink); }
 
-/* Синие заливки — белый текст поверх */
+/* Жёлтые заливки — чёрный текст поверх */
 .case__status--progress, .badge--progress, .tier__badge,
-.marquee, .btn--orange { color: #fff; }
+.marquee, .btn--orange { color: #111; }
 .btn--orange { background: var(--orange); }
-.btn--orange:hover { background: var(--orange-2); color: #fff; }
-.video-embed__play::before { border-left-color: #fff; }
-.video-embed__play { color: #fff; }
+.btn--orange:hover { background: var(--orange-2); color: #111; }
+.video-embed__play::before { border-left-color: #111; }
+.video-embed__play { color: #111; }
 
 /* Шапка на новой палитре */
-.site-header { background: rgba(247, 248, 250, 0.85); }
+.site-header { background: rgba(244, 244, 242, 0.85); }
 
-/* ---------- Тёмные акцентные секции + синие детали ---------- */
-.intro-band { background: var(--graphite); }
-.intro-band h2 { color: #fff; }
-.intro-band p { color: rgba(255,255,255,0.8); }
-.intro-band .eyebrow.muted { color: var(--gold); }
+/* ---------- Жёлтая акцентная полоса + чёрные секции ---------- */
+.intro-band { background: var(--gold); }
+.intro-band h2, .intro-band p { color: #1a1a1a; }
+.intro-band p { opacity: 0.82; }
+.intro-band .eyebrow.muted { color: #1a1a1a; }
 
-/* Синий верхний акцент на карточках */
+/* Жёлтый верхний акцент на карточках */
 .project-card { border-top: 3px solid var(--gold); }
 .hero-stats div { border-left: 3px solid var(--gold); }
 .price-card.featured { background: var(--graphite); }
 
-/* CTA-блок (внутренние страницы) — тёмный графит с белым текстом */
-.cta-bar { background: linear-gradient(135deg, var(--graphite), var(--ink)); }
-.cta-bar h2, .cta-bar p { color: #fff; }
+/* CTA-блок (внутренние страницы) — жёлтый с чёрным текстом */
+.cta-bar { background: linear-gradient(135deg, var(--gold), var(--orange-2)); }
+.cta-bar h2, .cta-bar p { color: #1a1a1a; }
 .cta-bar p { opacity: 0.85; }
 
-/* page-head (шапка внутренних страниц) — графит */
+/* page-head (шапка внутренних страниц) — чёрно-графитовая */
 .page-head { background: var(--graphite); }
 
 /* ---------- Карточки портфолио: фото целиком (без обрезки) ---------- */
@@ -963,3 +963,36 @@ p { color: var(--muted); }
 .seo-rel a:hover { color: var(--amber-ink); }
 .seo-group { margin-bottom: 40px; }
 .seo-group h2 { font-size: 1.4rem; margin-bottom: 14px; }
+
+/* ============================================================
+   Премиум: много чёрного + жёлтого, благородный серый фон.
+   ============================================================ */
+body { background: #edecea; }
+
+/* Чёрная премиальная шапка */
+.site-header { background: rgba(15,15,15,0.96); border-bottom: 1px solid rgba(255,255,255,0.08); }
+.site-header .brand, .site-header .brand-text { color: #fff; }
+.site-header .nav { color: rgba(255,255,255,0.82); }
+.site-header .nav a:hover { color: var(--gold); }
+.site-header .phone { color: #fff; }
+.site-header .phone:hover { color: var(--gold); }
+.menu-button { background: transparent; border-color: rgba(255,255,255,0.3); }
+.menu-button span { background: #fff; }
+
+/* Чёрный hero с жёлтыми акцентами */
+.hero { background: var(--ink); }
+.hero h1 { color: #fff; }
+.hero-copy > p { color: rgba(255,255,255,0.8); }
+.hero .eyebrow { color: var(--gold); }
+.hero-stats div { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.14); border-left: 3px solid var(--gold); }
+.hero-stats strong { color: #fff; }
+.hero-stats span { color: rgba(255,255,255,0.72); }
+.hero .btn-ghost { color: #fff; border-color: rgba(255,255,255,0.35); background: transparent; }
+.hero .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+.hero-visual .arrow-link { color: #fff; }
+.hero-visual .arrow-link::after { color: var(--gold); }
+.hero::after { background: rgba(254,189,23,0.18); }
+
+/* Премиальные карточки: чистый белый + мягкая тень */
+.project-card, .service-card, .price-card, .lead-form,
+.panel-card, .post, .video-card, .faq-item { box-shadow: 0 18px 44px rgba(15,15,15,0.10); }

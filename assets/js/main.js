@@ -56,7 +56,7 @@
       before: "", after: ""
     },
     {
-      id: "studio-novorossiysk", title: "Студия у моря", city: "Новороссийск",
+      id: "studio-novorossiysk", title: "Студия под ключ", city: "Новороссийск",
       area: 38, type: "Косметический", term: "30 дней", budget: "от 460 тыс ₽",
       status: "done", cover: "", description: "Тёплый светлый интерьер для сдачи в аренду.",
       task: "Быстро и недорого обновить студию под посуточную аренду.",
